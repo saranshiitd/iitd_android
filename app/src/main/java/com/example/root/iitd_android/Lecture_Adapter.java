@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -19,10 +21,20 @@ public class Lecture_Adapter extends ArrayAdapter {
 
     List<Lecture_Element> lectureList ;
     Context con ;
-    public Lecture_Adapter(Context context , int resource , List<Lecture_Element> lectureList) {
+    public Lecture_Adapter(Context context , int resource ) {
         super(context,resource);
         this.con = context ;
-        this.lectureList = lectureList ;
+//        this.lectureList = lectureList ;
+        ArrayList<String> subjects = new ArrayList<>(Arrays.asList(con.getResources().getStringArray(R.array.seminar_subject))) ;
+        ArrayList<String> speakers = new ArrayList<>(Arrays.asList(con.getResources().getStringArray(R.array.seminar_speaker))) ;
+        ArrayList<String> venues = new ArrayList<>(Arrays.asList(con.getResources().getStringArray(R.array.seminar_venue))) ;
+        ArrayList<String> time = new ArrayList<>(Arrays.asList(con.getResources().getStringArray(R.array.seminar_time))) ;
+        ArrayList<String> descriptions = new ArrayList<>(Arrays.asList(con.getResources().getStringArray(R.array.seminar_description))) ;
+        ArrayList<Lecture_Element> lectures = new ArrayList<>() ;
+        for (int i=0;i< speakers.size(); i++){
+            lectures.add(new Lecture_Element(subjects.get(i),speakers.get(i),descriptions.get(i),venues.get(i),time.get(i))) ;
+        }
+        this.lectureList = lectures ;
     }
 
     @Override
@@ -41,11 +53,14 @@ public class Lecture_Adapter extends ArrayAdapter {
         TextView subject = convertView.findViewById(R.id.Lecture_topic) ;
         TextView speaker = convertView.findViewById(R.id.lecture_speaker) ;
         TextView description = convertView.findViewById(R.id.lecture_text) ;
+        TextView venue = convertView.findViewById(R.id.lecture_venue) ;
+        TextView time = convertView.findViewById(R.id.lectureTIme) ;
 
         subject.setText(lectureList.get(position).getSubject());
         speaker.setText(lectureList.get(position).getSpeaker());
         description.setText(lectureList.get(position).getDescription());
-
+        venue.setText(lectureList.get(position).getVenue());
+        time.setText(lectureList.get(position).getTime());
 
 
         return convertView ;

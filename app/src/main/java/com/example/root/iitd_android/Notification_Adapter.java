@@ -11,6 +11,8 @@ import android.widget.TextView;
 
 import org.w3c.dom.Text;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -20,11 +22,19 @@ import java.util.List;
 public class Notification_Adapter extends ArrayAdapter {
     private List<Notification_Element> list ;
     Context con ;
-    public Notification_Adapter(Context context, int resource , List<Notification_Element> notificationList) {
+    public Notification_Adapter(Context context, int resource) {
         super(context,resource);
         this.con = context ;
-        this.list = notificationList ;
-    }
+//        this.list = notificationList ;
+
+        ArrayList<String> subjects = new ArrayList<>(Arrays.asList(con.getResources().getStringArray(R.array.Notfication_subject))) ;
+        ArrayList<String> content = new ArrayList<>(Arrays.asList(con.getResources().getStringArray(R.array.Notification_content))) ;
+        ArrayList<Notification_Element> notifications = new ArrayList<>();
+        for (int i= 0 ; i < subjects.size() ; i++){
+            notifications.add(new Notification_Element(subjects.get(i),content.get(i)));
+        }
+        this.list = notifications ;
+     }
 
     @Override
     public int getCount() {

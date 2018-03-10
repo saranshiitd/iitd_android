@@ -5,8 +5,8 @@ package com.example.root.iitd_android;
  */
 
 public class Notification_Element {
-    String subject ;
-    String text ;
+    private String subject ;
+    private String text ;
 
     public Notification_Element(String subject, String text) {
         this.subject = subject;

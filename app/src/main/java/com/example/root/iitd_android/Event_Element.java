@@ -8,16 +8,28 @@ import android.graphics.Bitmap;
 
 public class Event_Element {
 
-    String subject ;
-    String description ;
-    Bitmap image ;
-    String organizer ;
+    private String subject ;
+    private String description ;
+    private Integer image ;
+    private String organizer ;
+    private String venue ;
+    private String time ;
 
-    public Event_Element(String subject, String description, Bitmap image, String organizer) {
+    public Event_Element(String subject, String description, Integer image, String organizer, String venue , String time) {
         this.subject = subject;
         this.description = description;
         this.image = image;
         this.organizer = organizer ;
+        this.venue = venue ;
+        this.time = time ;
+    }
+
+    public String getVenue() {
+        return venue;
+    }
+
+    public String getTime() {
+        return time;
     }
 
     public String getSubject() {
@@ -28,7 +40,7 @@ public class Event_Element {
         return description;
     }
 
-    public Bitmap getImage() {
+    public Integer getImage() {
         return image;
     }
 

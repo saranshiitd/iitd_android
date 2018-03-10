@@ -1,5 +1,7 @@
 package com.example.root.iitd_android;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.design.widget.TabLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -17,7 +19,11 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
+import android.widget.ListView;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Main2Activity extends AppCompatActivity {
 
@@ -57,6 +63,14 @@ public class Main2Activity extends AppCompatActivity {
 
         mViewPager.addOnPageChangeListener(new TabLayout.TabLayoutOnPageChangeListener(tabLayout));
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
+
+
+//        new Event_Element()
+
+//        ListView eventsListView = (ListView) findViewById(R.id.clubLinstView) ;
+//        eventsListView.setAdapter(new Event_Adapter(Main2Activity.this , R.layout.club_template,events));
+
+
 
 
 
@@ -153,7 +167,8 @@ public class Main2Activity extends AppCompatActivity {
 //                    tab3.setImageView(bitmap1);
                     return tab3;
                 case 3 :
-
+                    TimeTableFragment tab4 = new TimeTableFragment() ;
+                    return tab4 ;
                 default:
                     return null;
             }
