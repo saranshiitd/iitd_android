@@ -20,7 +20,7 @@ import java.util.List;
  */
 
 public class TimeTableFragment extends Fragment {
-
+    ListView listView ;
     View rootView ;
     String[] days ;
     Spinner spinner ;
@@ -30,18 +30,19 @@ public class TimeTableFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         rootView = inflater.inflate(R.layout.timetablelayout,container,false) ;
+        listView = rootView.findViewById(R.id.ttLIstView) ;
+        if (listView.getHeaderViewsCount() == 0 ) {
+            listView.addHeaderView(getLayoutInflater().inflate(R.layout.timetabletemplate, null));
+        }
         days = getResources().getStringArray(R.array.days_array) ;
-        spinner = rootView.getRootView().findViewById(R.id.spinnerTT) ;
+        spinner = rootView.findViewById(R.id.spinnerTT) ;
         adapter =  new ArrayAdapter<String>(this.getActivity(),android.R.layout.simple_list_item_1,days) ;
         spinner.setAdapter(adapter);
 //        spinner.setEnabled(false);
         spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-                List<TimeTableElement> ttOnDay =  new ArrayList<>() ;
-                TimeTableElement.getDayTimeTable(days[i], timeTableElements,ttOnDay);
-                ListView ttListView =  rootView.getRootView().findViewById(R.id.ttLIstView) ;
-                ttListView.setAdapter(new TimeTableAdapter(getActivity() , R.layout.timetabletemplate , ttOnDay));
+                getData(days[i]);
             }
 
 
@@ -54,4 +55,11 @@ public class TimeTableFragment extends Fragment {
 
         return rootView ;
     }
+
+    private void getData(String day){
+//        listView.addHeaderView(getLayoutInflater().inflate(R.layout.timetabletemplate,null));
+        listView.setAdapter(new TimeTableAdapter(getActivity(),R.layout.timetabletemplate,day));
+    }
+
+
 }

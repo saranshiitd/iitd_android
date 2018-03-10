@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -17,19 +19,30 @@ import java.util.List;
 
 public class TimeTableAdapter extends ArrayAdapter {
     List<TimeTableElement> timeTableElements ;
+    List<TimeTableElement> todayTT ;
     Context con ;
 
-    public TimeTableAdapter(Context context , int resource , List<TimeTableElement> timeTableElements) {
+    public TimeTableAdapter(Context context , int resource , String day) {
 
         super(context,resource);
         this.con = context ;
-        this.timeTableElements = timeTableElements ;
-
+        ArrayList<String> subjects = new ArrayList<>(Arrays.asList(con.getResources().getStringArray(R.array.subjects))) ;
+//        ArrayList<String> organizers =  new ArrayList<>(Arrays.asList(con.getResources().getStringArray(R.array.event_organizer)));
+        ArrayList<String> days =  new ArrayList<>(Arrays.asList(con.getResources().getStringArray(R.array.days)));
+        ArrayList<String> venues =  new ArrayList<>(Arrays.asList(con.getResources().getStringArray(R.array.class_venue)));
+        ArrayList<String> times = new ArrayList<>(Arrays.asList(con.getResources().getStringArray(R.array.times))) ;
+        ArrayList<TimeTableElement> allTT = new ArrayList<>() ;
+        for (int i=0;i<subjects.size();i+=1){
+            allTT.add(new TimeTableElement(subjects.get(i),days.get(i),times.get(i),venues.get(i)));
+        }
+        this.timeTableElements = allTT ;
+        this.todayTT = new ArrayList<>() ;
+        TimeTableElement.getDayTimeTable(day,timeTableElements,todayTT);
     }
 
     @Override
     public int getCount() {
-        return timeTableElements.size() ;
+        return todayTT.size() ;
     }
 
     @NonNull
@@ -40,9 +53,9 @@ public class TimeTableAdapter extends ArrayAdapter {
         TextView subject = convertView.findViewById(R.id.ttSubject) ;
         TextView time = convertView.findViewById(R.id.ttTime) ;
         TextView venue = convertView.findViewById(R.id.ttVenue) ;
-        subject.setText(timeTableElements.get(position).getSubject());
-        time.setText(timeTableElements.get(position).getTime());
-        venue.setText(timeTableElements.get(position).getRoomNo());
+        subject.setText(todayTT.get(position).getSubject());
+        time.setText(todayTT.get(position).getTime());
+        venue.setText(todayTT.get(position).getRoomNo());
         return convertView ;
      }
 }

@@ -1,6 +1,6 @@
 <resources>
-    <string name="app_name">iitd_android</string>
-    <string name="title_activity_main2">Main2Activity</string>
+    <string name="app_name">EasyLife@IITD</string>
+    <string name="title_activity_main2">EasyLife@IITD </string>
     <string name="tab_text_1">Seminars/Lectures</string>
     <string name="tab_text_2">Club Events</string>
     <string name="tab_text_3">Notifications</string>
@@ -44,7 +44,7 @@
     </string-array>
     <string-array name="event_description">
         <item>Course on Entrepreneurship by eDC IIT Delhi</item>
-        <item>In the present scenario, due to hectic and occupied schedule, people are facing numerous health concerns. Medical diagnosis is too expensive and additionally, medical treatment coins multiplied side effects due to complex chemical compositions of medicines.</item>
+        <item>In the present scenario, due to hectic and occupied schedule, people are facing numerous health concerns.</item>
         <item>Ever wondered what it takes to be an entrepreneur? Do you have a brilliant idea and would like to develop a prototype, while getting it critically analysed by experienced mentors and judges? Are you one of those nerdy coders and designers who can give visionary ideas the required aesthetic appeal? Would you like to get involved in a 48 hour mission to build a startup?</item>
         <item>Do you consider yourself a mastermind or think that you can make the best strategies? Here is  the perfect game for you: RISE OF NATIONSShARE IIT Delhi announces its first event, an intellectually stimulating mind Game. Register in teams of two and mark your presence @LH310 10th March 6:15 PM sharp. The event is open to all the first and second yearites.</item>
     </string-array>
@@ -97,5 +97,69 @@
         <item>As an educator, Prof. Tummala was instrumental in setting up the largest Academic Center in SOP vision for Electronic Systems funded by NSF at Georgia Tech, producing more than 1500 engineers, with an integrated approach to research, education and industry collaborations with more than 100 companies in US, Europe, Japan, Korea, Taiwan and China</item>
         <item>The topic of her talk is, From Synthetic Biology to Nanobiotechnology: Rational Antimicrobial Engineering Approaches for Combating Multidrug-Resistant Pathogens. Please find below her brief bio and an abstract of the talk</item>
         <item>As an educator, Prof. Tummala was instrumental in setting up the largest Academic Center in SOP vision for Electronic Systems funded by NSF at Georgia Tech, producing more than 1500 engineers, with an integrated approach to research, education and industry collaborations with more than 100 companies in US, Europe, Japan, Korea, Taiwan and China</item>
+    </string-array>
+    <string-array name="subjects">
+        <item>HUL242</item>
+        <item>COL216</item>
+        <item>SBL100 Lab</item>
+        <item>SBL100</item>
+        <item>COL226</item>
+        <item>SBL100</item>
+        <item>COP290</item>
+        <item>HUL242</item>
+        <item>COL216</item>
+        <item>COL226</item>
+        <item>HUL242 Tutorial</item>
+        <item>SBL100</item>
+        <item>COL226</item>
+        <item>COL216 Lab</item>
+    </string-array>
+    <string-array name="days">
+        <item>Monday</item>
+        <item>Monday</item>
+        <item>Monday</item>
+        <item>Tuesday</item>
+        <item>Tuesday</item>
+        <item>Wednesday</item>
+        <item>Wednesday</item>
+        <item>Thursday</item>
+        <item>Thursday</item>
+        <item>Thursday</item>
+        <item>Thursday</item>
+        <item>Friday</item>
+        <item>Friday</item>
+        <item>Friday</item>
+    </string-array>
+    <string-array name="class_venue">
+        <item>LH108</item>
+        <item>LH410</item>
+        <item>LH205</item>
+        <item>LH121</item>
+        <item>LH114</item>
+        <item>LH121</item>
+        <item>LH410</item>
+        <item>LH108</item>
+        <item>LH410</item>
+        <item>LH114</item>
+        <item>LH517</item>
+        <item>LH121</item>
+        <item>LH114</item>
+        <item>Bhb 505</item>
+    </string-array>
+    <string-array name="times">
+        <item>8:00 AM - 9:30 AM</item>
+        <item>9:30 AM - 11:00 AM</item>
+        <item>3:00 PM - 5:00 PM</item>
+        <item>8:00 AM - 9:00 AM</item>
+        <item>11:00 AM - 12:00 AM</item>
+        <item>8:00 AM - 9:00 AM</item>
+        <item>5:00 PM - 6:30 PM</item>
+        <item>8:00 AM - 9:30 AM</item>
+        <item>9:30 AM - 11:00 AM</item>
+        <item>11:00 AM - 12:00 PM</item>
+        <item>1:00 PM - 2:00PM</item>
+        <item>8:00 AM - 9:00 AM</item>
+        <item>11:00 AM - 12:00 AM</item>
+        <item>1:00 PM - 3:00 PM</item>
     </string-array>
 </resources>
